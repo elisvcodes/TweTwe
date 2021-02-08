@@ -29,6 +29,15 @@ const updatePost = async (req, res) => {
   }
 };
 
+const deletePost = async (req, res) => {
+  try {
+    await Post.findOneAndDelete({ _id: req.params.id });
+    res.status(200).json();
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
 const likePost = async (req, res) => {
   try {
     const post = await Post.findOne({ _id: req.params.id });
@@ -50,4 +59,4 @@ const likePost = async (req, res) => {
   }
 };
 
-module.exports = { createPost, likePost, updatePost };
+module.exports = { createPost, likePost, updatePost, deletePost };
