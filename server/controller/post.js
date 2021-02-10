@@ -32,6 +32,9 @@ const updatePost = async (req, res) => {
   if (!match) throw 'Invalid Option';
   try {
     const post = await Post.findOne({ _id: req.params.id });
+    if (String(req.user._id) !== String(post.author)) {
+      throw "You can't modify this post";
+    }
     providedOption.map((key) => (post[key] = req.body[key]));
     await post.save();
     res.status(200).json(post);
