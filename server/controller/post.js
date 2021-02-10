@@ -18,8 +18,13 @@ const getPosts = async (req, res) => {
 };
 
 const getUserPosts = async (req, res) => {
-  const posts = await Post.find({ author: req.user._id });
+  const posts = await Post.find({ author: req.params.user });
   res.status(200).json(posts);
+};
+
+const getASinglePost = async (req, res) => {
+  const post = await Post.findOne({ _id: req.params.id });
+  res.status(200).json(post);
 };
 
 const updatePost = async (req, res) => {
@@ -80,4 +85,5 @@ module.exports = {
   deletePost,
   getPosts,
   getUserPosts,
+  getASinglePost,
 };
