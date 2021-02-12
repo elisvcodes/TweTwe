@@ -7,8 +7,8 @@ const createComment = async (req, res) => {
     Comment.find({ _id: comment._id })
       .populate('author')
       .exec((err, result) => {
-        if (err) res.json(err);
-        return res.status(200).json(result);
+        if (err) return res.json(err);
+        res.status().json(result);
       });
   });
 };
@@ -17,7 +17,7 @@ const getComments = async (req, res) => {
   Comment.find({ postId: req.body.postId })
     .populate('author')
     .exec((err, comments) => {
-      if (err) return res.status(400).send(err);
+      if (err) return res.json(err);
       res.status(200).json(comments);
     });
 };
