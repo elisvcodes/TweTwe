@@ -10,11 +10,6 @@ const postSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    tags: [
-      {
-        type: String,
-      },
-    ],
     likes: [
       {
         type: mongoose.Schema.Types.ObjectId,
@@ -23,12 +18,13 @@ const postSchema = new mongoose.Schema(
     ],
     author: {
       type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
       required: true,
     },
   },
   { timestamps: true }
 );
 
-const Post = mongoose.model('post', postSchema);
+const Post = mongoose.model('Post', postSchema);
 
 module.exports = Post;
