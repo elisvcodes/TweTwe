@@ -12,4 +12,21 @@ const createUser = async (req, res) => {
   }
 };
 
-module.exports = { createUser };
+const updateUser = async (req, res) => {
+  const allowedOptions = ['name', 'email', 'password', 'confirmpassword'];
+  const chosenOptions = Object.keys(req.body);
+  const isMatch = chosenOptions.every((item) => allowedOptions.includes(item));
+  if (!isMatch) {
+    throw 'Invalid Option';
+  }
+  try {
+    const user = await User.findOne({ _id: req.user._id });
+    chosenOptions.map((option) => (user[option] = req.body[option]));
+    await user.save();
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
+module.exports = { createUser, updateUser };
