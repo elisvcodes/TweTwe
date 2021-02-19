@@ -1,5 +1,4 @@
 export default (auth = { authData: null }, action) => {
-  console.log(action.type);
   switch (action.type) {
     case 'AUTH':
       localStorage.setItem('profile', JSON.stringify(action.payload));
