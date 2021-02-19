@@ -5,7 +5,8 @@ const createUser = async (req, res) => {
     const user = new User(req.body);
     await user.save();
     user.generateToken();
-    res.status(201).json(user);
+    const token = user.tokens[user.tokens.length - 1].token;
+    res.status(201).json({ result: user, token });
   } catch (error) {
     res.status(500).json(error);
   }
