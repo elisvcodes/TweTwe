@@ -30,10 +30,12 @@ const updateUser = async (req, res) => {
 };
 
 const deleteUser = async (req, res) => {
-  User.findOneAndDelete({ _id: req.user._id }).exec((err, result) => {
-    if (err) return res.status(500).json(err);
+  try {
+    console.log(req.user);
+    await req.user.remove();
     res.status(200).json({ message: 'User was removed successfully' });
-  });
+  } catch (error) {
+    console.log(error);
+  }
 };
-
 module.exports = { createUser, updateUser, deleteUser };

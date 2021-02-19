@@ -72,11 +72,15 @@ userSchema.pre('save', async function (next) {
 });
 
 userSchema.pre('remove', async function (next) {
-  await Post.findOneAndDelete({ author: this._id });
-  await Follow.findOneAndDelete({ follower: this._id });
-  await Follow.findOneAndDelete({ following: this._id });
-  await Comment.findOneAndDelete({ author: this._id });
-  next();
+  try {
+    await Post.deleteMany({ author: this._id });
+    await Follow.deleteMany({ follower: this._id });
+    await Follow.deleteMany({ following: this._id });
+    await Comment.deleteMany({ author: this._id });
+    next();
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 userSchema.methods.toJSON = function () {
