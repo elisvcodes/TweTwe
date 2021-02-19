@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-
+const Post = require('./post');
+const Follow = require('./follower');
+const Comment = require('./comment');
 const userSchema = new mongoose.Schema(
   {
     name: {
@@ -66,6 +68,14 @@ userSchema.pre('save', async function (next) {
     this.confirmPassword = await bcrypt.hash(this.confirmPassword, 8);
   }
 
+  next();
+});
+
+userSchema.pre('remove', async function (next) {
+  await Post.findOneAndDelete({ author: this._id });
+  await Follow.findOneAndDelete({ follower: this._id });
+  await Follow.findOneAndDelete({ following: this._id });
+  await Comment.findOneAndDelete({ author: this._id });
   next();
 });
 
