@@ -18,8 +18,12 @@ const getPosts = async (req, res) => {
 };
 
 const getUserPosts = async (req, res) => {
-  const posts = await Post.find({ author: req.params.user });
-  res.status(200).json(posts);
+  const posts = await Post.find({ author: req.params.user })
+    .populate('author')
+    .exec((err, result) => {
+      if (err) return res.status(500).json(err);
+      res.status(200).json(result);
+    });
 };
 
 const getASinglePost = async (req, res) => {
@@ -58,24 +62,23 @@ const deletePost = async (req, res) => {
 };
 
 const likePost = async (req, res) => {
-  try {
-    const post = await Post.findOne({ _id: req.params.id });
-
-    const foundId = post.likes.findIndex(
-      (id) => String(id) === String(req.user._id)
-    );
-    if (foundId === -1) {
-      post.likes = post.likes.concat({ _id: req.user._id });
-    } else {
-      post.likes = post.likes.filter(
-        (id) => String(id) !== String(req.user._id)
+  await Post.findOne({ _id: req.params.id })
+    .populate('author')
+    .exec((err, result) => {
+      if (err) return res.status(404).json(err);
+      const foundId = result.likes.findIndex(
+        (id) => String(id) === String(req.user._id)
       );
-    }
-    await post.save();
-    res.status(200).json(post);
-  } catch (error) {
-    res.status(404).json(error);
-  }
+      if (foundId === -1) {
+        result.likes = result.likes.concat({ _id: req.user._id });
+      } else {
+        result.likes = result.likes.filter(
+          (id) => String(id) !== String(req.user._id)
+        );
+      }
+      result.save();
+      res.status(200).json(result);
+    });
 };
 
 module.exports = {
