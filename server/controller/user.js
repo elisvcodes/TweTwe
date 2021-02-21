@@ -31,11 +31,11 @@ const updateUser = async (req, res) => {
 
 const deleteUser = async (req, res) => {
   try {
-    console.log(req.user);
     await req.user.remove();
     res.status(200).json({ message: 'User was removed successfully' });
   } catch (error) {
-    console.log(error);
+    res.status(500).json(error);
   }
 };
+
 module.exports = { createUser, updateUser, deleteUser };
