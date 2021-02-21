@@ -3,7 +3,6 @@ export default (posts = [], action) => {
     case 'GET_USER_POSTS':
       return action.payload;
     case 'LIKEPOST':
-      console.log(posts);
       const newLikes = posts.map((post) => {
         if (post._id === action.payload._id) {
           return { ...post, ...action.payload };
@@ -12,7 +11,8 @@ export default (posts = [], action) => {
         }
       });
       return newLikes;
-
+    case 'CREATE_POST':
+      return [...posts, action.payload];
     default:
       return posts;
   }
