@@ -12,6 +12,10 @@ export const getUserPosts = (id) => async (dispatch) => {
 
 export const likePost = (id) => async (dispatch) => {
   const { data } = await API.likePost(id);
-  console.log(data);
   dispatch({ type: 'LIKEPOST', payload: data });
+};
+
+export const createPost = (post) => async (dispatch) => {
+  const { data } = await API.createPost(post);
+  dispatch({ type: 'CREATE_POST', payload: data });
 };
