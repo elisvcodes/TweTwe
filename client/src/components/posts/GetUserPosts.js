@@ -8,7 +8,6 @@ dayjs.extend(relativeTime);
 
 export default function GetUserPosts({ id }) {
   const posts = useSelector((state) => state.posts);
-  console.log(posts);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getUserPosts(id));
@@ -18,7 +17,7 @@ export default function GetUserPosts({ id }) {
       {posts.map((post) => {
         return (
           <div key={post._id}>
-            <p> {dayjs(post.createdAt).format('DD/MM/YYYY')}</p>
+            <p> {dayjs(post.createdAt).format('MM/DD/YYYY')}</p>
             <p> {post.author.name}</p>
             <h1> {post.title}</h1>
             <p> {post.article}</p>
