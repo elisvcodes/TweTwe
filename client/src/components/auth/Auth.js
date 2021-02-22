@@ -3,9 +3,13 @@ import { useDispatch } from 'react-redux';
 import { login } from '../../_actions/auth';
 import { signUp } from '../../_actions/user';
 import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
+
 export default function Auth(props) {
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
+  let history = useHistory();
+
   let isJoin;
   if (props.match.path === '/signup') {
     isJoin = true;
@@ -17,8 +21,14 @@ export default function Auth(props) {
     console.log(data);
     if (!isJoin) {
       dispatch(login(data));
+      setTimeout(() => {
+        history.push('/');
+      }, 100);
     } else {
       dispatch(signUp(data));
+      setTimeout(() => {
+        history.push('/');
+      }, 100);
     }
   };
 
