@@ -5,6 +5,11 @@ export const signUp = (user) => async (dispatch) => {
   dispatch({ type: 'SIGNUP', payload: data });
 };
 
+export const logout = () => async (dispatch) => {
+  await API.logout();
+  dispatch({ type: 'LOGOUT' });
+};
+
 export const getUserPosts = (id) => async (dispatch) => {
   const { data } = await API.getUserPosts(id);
   dispatch({ type: 'GET_USER_POSTS', payload: data });
