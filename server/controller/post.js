@@ -22,7 +22,7 @@ const getUserPosts = async (req, res) => {
     .populate('author')
     .exec((err, result) => {
       if (err) return res.status(500).json(err);
-      res.status(200).json(result);
+      res.status(200).json(result.reverse());
     });
 };
 
