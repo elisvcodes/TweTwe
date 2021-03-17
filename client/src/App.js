@@ -5,12 +5,13 @@ import { Switch, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Profile from './components/user/Profile';
 import CreatePost from './components/posts/CreatePost';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 function App() {
-  const dispatch = useDispatch();
-  useEffect(() => {}, []);
   return (
     <>
+      <CssBaseline />
+
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/signin" component={Auth} />
