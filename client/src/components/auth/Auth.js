@@ -4,6 +4,37 @@ import { login } from '../../_actions/auth';
 import { signUp } from '../../_actions/user';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
+import { Container, makeStyles, TextField } from '@material-ui/core';
+
+const useStyles = makeStyles({
+  root: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    minHeight: '100vh',
+  },
+  form: {
+    '& .MuiFormControl-root': {
+      margin: '5px 0',
+    },
+  },
+
+  button: {
+    marginTop: '10px',
+    border: 'none',
+    background: '#ef8354',
+    color: 'white',
+    padding: '10px 30px',
+    fontSize: '15px',
+    letterSpacing: '2px',
+    textTransform: 'uppercase',
+    '&:hover': {
+      background: '#eb5e28',
+      cursor: 'pointer',
+    },
+  },
+});
 
 export default function Auth(props) {
   const dispatch = useDispatch();
@@ -32,42 +63,58 @@ export default function Auth(props) {
     }
   };
 
+  const classes = useStyles();
+
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        {isJoin && (
+      <Container className={classes.root}>
+        <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
+          {isJoin && (
+            <div>
+              <TextField
+                type="text"
+                name="name"
+                placeholder="Full Name"
+                inputRef={register}
+                variant="outlined"
+              />
+            </div>
+          )}
           <div>
-            <input
-              type="text"
-              name="name"
-              placeholder="full name"
-              ref={register}
+            <TextField
+              type="email"
+              name="email"
+              placeholder="Email"
+              inputRef={register}
+              variant="outlined"
             />
           </div>
-        )}
-        <div>
-          <input type="email" name="email" placeholder="email" ref={register} />
-        </div>
-        <div>
-          <input
-            type="password"
-            name="password"
-            placeholder="password"
-            ref={register}
-          />
-        </div>
-        {isJoin && (
           <div>
-            <input
+            <TextField
               type="password"
-              name="confirmPassword"
-              placeholder="confirm password"
-              ref={register}
+              name="password"
+              placeholder="Password"
+              inputRef={register}
+              variant="outlined"
             />
           </div>
-        )}
-        <button type="submit"> {isJoin ? 'Sign Up' : 'Login'}</button>
-      </form>
+          {isJoin && (
+            <div>
+              <TextField
+                type="password"
+                name="password"
+                placeholder="Password"
+                inputRef={register}
+                variant="outlined"
+              />
+            </div>
+          )}
+          <button className={classes.button} type="submit">
+            {' '}
+            {isJoin ? 'Sign Up' : 'Login'}
+          </button>
+        </form>
+      </Container>
     </>
   );
 }
