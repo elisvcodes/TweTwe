@@ -19,3 +19,7 @@ export const likePost = (id) =>
 export const createPost = (post) =>
   axios.post('http://localhost:8000/posts', post);
 export const logout = () => axios.post('http://localhost:8000/auth/logout');
+export const followingCount = () =>
+  axios.post('http://localhost:8000/follow/followingcount');
+export const followerCount = () =>
+  axios.post('http://localhost:8000/follow/followercount');
