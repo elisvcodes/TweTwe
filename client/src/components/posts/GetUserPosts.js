@@ -22,7 +22,6 @@ dayjs.extend(relativeTime);
 const useStyles = makeStyles({
   root: {
     margin: '10px 0',
-    maxWidth: '700px',
     padding: '10px 0',
   },
 });
