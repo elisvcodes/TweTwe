@@ -25,12 +25,12 @@ export const createPost = (post) => async (dispatch) => {
   dispatch({ type: 'CREATE_POST', payload: data });
 };
 
-export const getFollowerCount = () => async () => {
-  const { data } = await API.followerCount();
-  console.log(data);
+export const getFollowerCount = (follower) => async (dispatch) => {
+  const { data } = await API.followerCount(follower);
+  dispatch({ type: 'GET_FOLLOWER_COUNT', payload: data });
 };
 
-export const getFollowingCount = () => async () => {
-  const { data } = await API.followingCount();
-  console.log(data);
+export const getFollowingCount = (following) => async (dispatch) => {
+  const { data } = await API.followingCount(following);
+  dispatch({ type: 'GET_FOLLOWING_COUNT', payload: data });
 };
