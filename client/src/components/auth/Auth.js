@@ -49,7 +49,6 @@ export default function Auth(props) {
   }
 
   const onSubmit = (data) => {
-    console.log(data);
     if (!isJoin) {
       dispatch(login(data));
       setTimeout(() => {
