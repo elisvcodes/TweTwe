@@ -4,7 +4,28 @@ import { getUserPosts, likePost } from '../../_actions/user';
 
 import * as dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
+import {
+  Card,
+  CardActions,
+  CardContent,
+  CardHeader,
+  FormControlLabel,
+  Checkbox,
+  IconButton,
+  makeStyles,
+  Typography,
+} from '@material-ui/core';
+import { Favorite, FavoriteBorder } from '@material-ui/icons/';
+
 dayjs.extend(relativeTime);
+
+const useStyles = makeStyles({
+  root: {
+    margin: '10px 0',
+    maxWidth: '700px',
+    padding: '10px 0',
+  },
+});
 
 export default function GetUserPosts({ id }) {
   const posts = useSelector((state) => state.posts);
@@ -12,18 +33,36 @@ export default function GetUserPosts({ id }) {
   useEffect(() => {
     dispatch(getUserPosts(id));
   }, [id, dispatch]);
+
+  const classes = useStyles();
+
   return (
     <>
       {posts.map((post) => {
         return (
           <div key={post._id}>
-            <p> {dayjs(post.createdAt).format('MM/DD/YYYY')}</p>
-            <p> {post.author.name}</p>
-            <h1> {post.title}</h1>
-            <p> {post.article}</p>
-            <button onClick={() => dispatch(likePost(post._id))}>
-              Like {post.likes.length}
-            </button>
+            <Card className={classes.root}>
+              <CardHeader
+                title={post.author.name}
+                subheader={<p> {dayjs(post.createdAt).format('MM/DD/YYYY')}</p>}
+              />
+              <CardContent>
+                <Typography variant="h6">{post.article}</Typography>
+              </CardContent>
+              <CardActions>
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      icon={<FavoriteBorder />}
+                      checkedIcon={<Favorite />}
+                      name="checkedH"
+                      onClick={() => dispatch(likePost(post._id))}
+                    />
+                  }
+                  label={post.likes.length}
+                />
+              </CardActions>
+            </Card>
           </div>
         );
       })}
