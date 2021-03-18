@@ -12,7 +12,6 @@ export default function CreatePost() {
 
   const onSubmit = (data) => {
     data.author = user.result._id;
-    console.log(data);
     dispatch(createPost(data));
     reset();
     setTimeout(() => {
