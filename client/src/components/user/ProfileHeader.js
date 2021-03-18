@@ -8,7 +8,6 @@ dayjs.extend(relativeTime);
 
 export default function ProfileHeader({ user }) {
   const dispatch = useDispatch();
-  dispatch(getFollowerCount());
   return (
     <>
       <Card>
