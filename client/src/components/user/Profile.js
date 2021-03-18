@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { logout } from '../../_actions/auth';
 import { useDispatch } from 'react-redux';
 import { Container, Grid } from '@material-ui/core';
+import ProfileHeader from './ProfileHeader';
 
 export default function Profile(props) {
   const history = useHistory();
@@ -30,6 +31,7 @@ export default function Profile(props) {
           </button>
           <button onClick={() => history.push('/compose')}>Compose</button>
           <Container>
+            <ProfileHeader user={user} />
             <Grid container>
               <Grid item xs={12} sm={3}>
                 <h1>Hello</h1>
