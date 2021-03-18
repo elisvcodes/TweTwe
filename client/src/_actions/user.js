@@ -24,3 +24,13 @@ export const createPost = (post) => async (dispatch) => {
   const { data } = await API.createPost(post);
   dispatch({ type: 'CREATE_POST', payload: data });
 };
+
+export const getFollowerCount = () => async () => {
+  const { data } = await API.followerCount();
+  console.log(data);
+};
+
+export const getFollowingCount = () => async () => {
+  const { data } = await API.followingCount();
+  console.log(data);
+};
