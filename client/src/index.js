@@ -8,12 +8,10 @@ import reducer from './_reducers/index';
 import { BrowserRouter } from 'react-router-dom';
 const store = createStore(reducer, compose(applyMiddleware(thunk)));
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </Provider>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
 );
