@@ -12,6 +12,13 @@ const createUser = async (req, res) => {
   }
 };
 
+const getSingleUser = async (req, res) => {
+  User.findOne({ _id: req.params.id }).exec((err, result) => {
+    if (err) return res.status(404).json({ msg: 'user was not found' });
+    return res.status(200).json(result);
+  });
+};
+
 const updateUser = async (req, res) => {
   const allowedOptions = ['name', 'email', 'password', 'confirmpassword'];
   const chosenOptions = Object.keys(req.body);
@@ -38,4 +45,4 @@ const deleteUser = async (req, res) => {
   }
 };
 
-module.exports = { createUser, updateUser, deleteUser };
+module.exports = { createUser, updateUser, deleteUser, getSingleUser };
