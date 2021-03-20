@@ -1,16 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import GetUserPosts from '../posts/GetUserPosts';
 import { useHistory } from 'react-router-dom';
 import { logout } from '../../_actions/auth';
-import { useDispatch } from 'react-redux';
+import { getSingleUser } from '../../_actions/user';
+import { useDispatch, useSelector } from 'react-redux';
 import { Container, Grid } from '@material-ui/core';
 import ProfileHeader from './ProfileHeader';
 import FollowCounter from './FollowCounter';
 
 export default function Profile(props) {
-  const history = useHistory();
+  const userId = props.match.params.id;
+  const loggedInUser = JSON.parse(localStorage.getItem('profile'));
   const dispatch = useDispatch();
-  const user = useState(JSON.parse(localStorage.getItem('profile')));
+  const history = useHistory();
+  const user = useSelector((state) => state.user);
+  useEffect(() => {
+    dispatch(getSingleUser(userId));
+  }, [dispatch]);
+
   return (
     <>
       {user && (
@@ -20,19 +27,22 @@ export default function Profile(props) {
             onClick={() => {
               dispatch(logout());
               setTimeout(() => {
-                history.push('/');
-              }, 100);
+                history.push('/signin');
+              }, 300);
             }}
           >
             Logout
           </button>
           <button onClick={() => history.push('/compose')}>Compose</button>
           <Container>
-            <ProfileHeader user={user} />
+            <ProfileHeader
+              user={loggedInUser ? loggedInUser.result : user.userData}
+              viewingProfile={user.userData}
+            />
             <Grid container>
               <Grid item xs={12} sm={3}>
                 <FollowCounter
-                  follower={user[0].result._id}
+                  follower={props.match.params.id}
                   following={props.match.params.id}
                 />
               </Grid>

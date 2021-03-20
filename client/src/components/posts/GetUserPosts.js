@@ -27,44 +27,58 @@ const useStyles = makeStyles({
 });
 
 export default function GetUserPosts({ id }) {
-  const posts = useSelector((state) => state.posts);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getUserPosts(id));
   }, [id, dispatch]);
+  const posts = useSelector((state) => state.posts);
 
   const classes = useStyles();
 
   return (
     <>
-      {posts.map((post) => {
-        return (
-          <div key={post._id}>
-            <Card className={classes.root}>
-              <CardHeader
-                title={post.author.name}
-                subheader={<p> {dayjs(post.createdAt).format('MM/DD/YYYY')}</p>}
-              />
-              <CardContent>
-                <Typography variant="h6">{post.article}</Typography>
-              </CardContent>
-              <CardActions>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      icon={<FavoriteBorder />}
-                      checkedIcon={<Favorite />}
-                      name="checkedH"
-                      onClick={() => dispatch(likePost(post._id))}
+      {posts.length === 0 ? (
+        <>
+          <Card className={classes.root}>
+            <CardContent>
+              <Typography variant="h6">No Posts Yet</Typography>
+            </CardContent>
+          </Card>
+        </>
+      ) : (
+        <>
+          {posts.map((post) => {
+            return (
+              <div key={post._id}>
+                <Card className={classes.root}>
+                  <CardHeader
+                    title={post.author.name}
+                    subheader={
+                      <p> {dayjs(post.createdAt).format('MM/DD/YYYY')}</p>
+                    }
+                  />
+                  <CardContent>
+                    <Typography variant="h6">{post.article}</Typography>
+                  </CardContent>
+                  <CardActions>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          icon={<FavoriteBorder />}
+                          checkedIcon={<Favorite />}
+                          name="checkedH"
+                          onClick={() => dispatch(likePost(post._id))}
+                        />
+                      }
+                      label={post.likes.length}
                     />
-                  }
-                  label={post.likes.length}
-                />
-              </CardActions>
-            </Card>
-          </div>
-        );
-      })}
+                  </CardActions>
+                </Card>
+              </div>
+            );
+          })}
+        </>
+      )}
     </>
   );
 }
