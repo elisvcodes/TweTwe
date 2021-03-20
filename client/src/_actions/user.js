@@ -6,7 +6,6 @@ export const signUp = (user) => async (dispatch) => {
 };
 
 export const getSingleUser = (id) => async (dispatch) => {
-  console.log(id);
   const { data } = await API.getSingleUser(id);
   dispatch({ type: 'GET_SINGLE_USER', payload: data });
 };
