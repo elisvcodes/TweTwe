@@ -12,6 +12,8 @@ axios.interceptors.request.use((req) => {
 // const API = axios.create({ baseURL: 'http://localhost:8000' });
 
 export const signUp = (data) => axios.post(`http://localhost:8000/users`, data);
+export const getSingleUser = (id) =>
+  axios.get(`http://localhost:8000/users/${id}`);
 export const getUserPosts = (id) =>
   axios.get(`http://localhost:8000/posts/${id}`);
 export const likePost = (id) =>

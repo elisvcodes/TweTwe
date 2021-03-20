@@ -5,6 +5,12 @@ export const signUp = (user) => async (dispatch) => {
   dispatch({ type: 'SIGNUP', payload: data });
 };
 
+export const getSingleUser = (id) => async (dispatch) => {
+  console.log(id);
+  const { data } = await API.getSingleUser(id);
+  dispatch({ type: 'GET_SINGLE_USER', payload: data });
+};
+
 export const logout = () => async (dispatch) => {
   await API.logout();
   dispatch({ type: 'LOGOUT' });
