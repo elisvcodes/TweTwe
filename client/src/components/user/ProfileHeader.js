@@ -6,8 +6,6 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 dayjs.extend(relativeTime);
 
 export default function ProfileHeader({ user, viewingProfile }) {
-  console.log(user);
-  console.log(viewingProfile);
   return (
     <>
       {viewingProfile && (
@@ -24,7 +22,11 @@ export default function ProfileHeader({ user, viewingProfile }) {
             </Grid>
             <CardActions>
               <Grid item xs={6} sm={1}>
-                {user._id === viewingProfile._id ? '' : <Follow />}
+                {user._id === viewingProfile._id ? (
+                  ''
+                ) : (
+                  <Follow user={user} viewingProfile={viewingProfile} />
+                )}
               </Grid>
             </CardActions>
           </Grid>
