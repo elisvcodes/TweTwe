@@ -22,7 +22,7 @@ const followingCount = (req, res) => {
   });
 };
 
-const subscribed = (req, res) => {
+const following = (req, res) => {
   Follower.find({
     following: req.body.following,
     follower: req.body.follower,
@@ -32,7 +32,6 @@ const subscribed = (req, res) => {
     if (result.length > 0) {
       subscribed = true;
     }
-
     res.status(200).json(subscribed);
   });
 };
@@ -42,7 +41,6 @@ const unfollow = (req, res) => {
     following: req.body.following,
     follower: req.body.follower,
   }).exec((err, result) => {
-    console.log(result);
     if (err) return res.status(400).json(err);
     res.status(200).json(result);
   });
@@ -53,5 +51,5 @@ module.exports = {
   followerCount,
   followingCount,
   unfollow,
-  subscribed,
+  following,
 };
