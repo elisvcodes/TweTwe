@@ -41,13 +41,10 @@ export default function Profile(props) {
             />
             <Grid container>
               <Grid item xs={12} sm={3}>
-                <FollowCounter
-                  follower={props.match.params.id}
-                  following={props.match.params.id}
-                />
+                <FollowCounter follower={userId} following={userId} />
               </Grid>
               <Grid item xs={12} sm={9}>
-                <GetUserPosts id={props.match.params.id} />
+                <GetUserPosts id={userId} />
               </Grid>
             </Grid>
           </Container>
