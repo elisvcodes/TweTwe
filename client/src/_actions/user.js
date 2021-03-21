@@ -39,3 +39,18 @@ export const getFollowingCount = (following) => async (dispatch) => {
   const { data } = await API.followingCount(following);
   dispatch({ type: 'GET_FOLLOWING_COUNT', payload: data });
 };
+
+export const follow = (userIds) => async (dispatch) => {
+  console.log(userIds);
+  const { data } = await API.follow(userIds);
+};
+
+export const unfollow = (userIds) => async (dispatch) => {
+  console.log(userIds);
+  const { data } = await API.unfollow(userIds);
+};
+
+export const following = (userIds) => async (dispatch) => {
+  const { data } = await API.following(userIds);
+  dispatch({ type: 'FOLLOWING', payload: data });
+};
