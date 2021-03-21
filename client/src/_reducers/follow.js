@@ -1,4 +1,7 @@
-export default (follow = { followerCount: 0, followingCount: 0 }, action) => {
+export default (
+  follow = { followerCount: 0, followingCount: 0, isFollowing: false },
+  action
+) => {
   switch (action.type) {
     case 'GET_FOLLOWER_COUNT':
       return {
@@ -10,6 +13,8 @@ export default (follow = { followerCount: 0, followingCount: 0 }, action) => {
         ...follow,
         followingCount: action.payload.followingCount,
       };
+    case 'FOLLOWING':
+      return { ...follow, isFollowing: action.payload };
     default:
       return follow;
   }
