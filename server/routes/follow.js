@@ -6,12 +6,12 @@ const {
   followerCount,
   followingCount,
   unfollow,
-  subscribed,
+  following,
 } = require('../controller/follower');
 
 router.post('/', auth, follow);
 router.post('/followercount', followerCount);
 router.post('/followingcount', followingCount);
 router.post('/unfollow', auth, unfollow);
-router.post('/subscribed', auth, subscribed);
+router.post('/following', auth, following);
 module.exports = router;
