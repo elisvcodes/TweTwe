@@ -1,13 +1,6 @@
-import {
-  Card,
-  CardActions,
-  CardContent,
-  makeStyles,
-  Typography,
-} from '@material-ui/core';
+import { Card, CardActions, makeStyles, Typography } from '@material-ui/core';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getFollowerCount, getFollowingCount } from '../../_actions/user';
 const useStyles = makeStyles({
   root: {
     marginTop: '10px',
@@ -16,28 +9,18 @@ const useStyles = makeStyles({
   },
 });
 
-export default function FollowCounter({ following, follower }) {
-  let followVariables = {
-    following: following,
-    follower: follower,
-  };
-  const dispatch = useDispatch();
-  const follow = useSelector((state) => state.follow);
-
-  useEffect(() => {
-    dispatch(getFollowerCount(followVariables));
-    dispatch(getFollowingCount(followVariables));
-  }, [dispatch]);
+export default function FollowCounter({}) {
+  const counterData = useSelector((state) => state.follow);
   const classes = useStyles();
   return (
     <>
       <Card className={classes.root}>
         <CardActions>
           <Typography variant="body1">
-            Following: {follow.followingCount}
+            Following: {counterData.followingCount}
           </Typography>
           <Typography variant="body1">
-            Followers: {follow.followerCount}
+            Followers: {counterData.followerCount}
           </Typography>
         </CardActions>
       </Card>
