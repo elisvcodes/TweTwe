@@ -28,11 +28,11 @@ const following = (req, res) => {
     follower: req.body.follower,
   }).exec((err, result) => {
     if (err) return res.status(400).json(err);
-    let subscribed = false;
+    let following = false;
     if (result.length > 0) {
-      subscribed = true;
+      following = true;
     }
-    res.status(200).json(subscribed);
+    res.status(200).json(following);
   });
 };
 
