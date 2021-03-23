@@ -11,7 +11,7 @@ export default function ProfileHeader({ user, viewingProfile }) {
       {viewingProfile && (
         <Card>
           <Grid container>
-            <Grid item xs={6} sm={11}>
+            <Grid item xs={6} sm={10}>
               <CardContent>
                 <h1> {viewingProfile.name}</h1>
                 <h5>
@@ -21,7 +21,7 @@ export default function ProfileHeader({ user, viewingProfile }) {
               </CardContent>
             </Grid>
             <CardActions>
-              <Grid item xs={6} sm={1}>
+              <Grid item xs={6} sm={2}>
                 {user._id === viewingProfile._id ? (
                   ''
                 ) : (
