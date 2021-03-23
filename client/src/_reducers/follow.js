@@ -13,6 +13,16 @@ export default (
         ...follow,
         followingCount: action.payload.followingCount,
       };
+    case 'ADD_FOLLOWER':
+      return {
+        ...follow,
+        followerCount: follow.followerCount + 1,
+      };
+    case 'REMOVE_FOLLOWER':
+      return {
+        ...follow,
+        followerCount: follow.followerCount - 1,
+      };
     case 'FOLLOWING':
       return { ...follow, isFollowing: action.payload };
     default:
