@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserPosts, likePost } from '../../_actions/user';
+import { getUserPosts, likePost } from '../../_actions/posts';
 
 import * as dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
@@ -11,7 +11,6 @@ import {
   CardHeader,
   FormControlLabel,
   Checkbox,
-  IconButton,
   makeStyles,
   Typography,
 } from '@material-ui/core';

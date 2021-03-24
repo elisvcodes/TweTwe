@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { createPost } from '../../_actions/user';
+import { createPost } from '../../_actions/posts';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../../_actions/auth';
-import { signUp } from '../../_actions/user';
+import { signUp } from '../../_actions/auth';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import { Container, makeStyles, TextField } from '@material-ui/core';

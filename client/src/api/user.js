@@ -9,18 +9,8 @@ axios.interceptors.request.use((req) => {
   return req;
 });
 
-// const API = axios.create({ baseURL: 'http://localhost:8000' });
-
-export const signUp = (data) => axios.post(`http://localhost:8000/users`, data);
 export const getSingleUser = (id) =>
   axios.get(`http://localhost:8000/users/${id}`);
-export const getUserPosts = (id) =>
-  axios.get(`http://localhost:8000/posts/${id}`);
-export const likePost = (id) =>
-  axios.patch(`http://localhost:8000/posts/${id}/like`);
-export const createPost = (post) =>
-  axios.post('http://localhost:8000/posts', post);
-export const logout = () => axios.post('http://localhost:8000/auth/logout');
 export const followingCount = (following) =>
   axios.post('http://localhost:8000/follow/followingcount', following);
 export const followerCount = (follower) =>

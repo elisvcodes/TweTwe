@@ -11,6 +11,8 @@ axios.interceptors.request.use((req) => {
 
 const url = 'http://localhost:8000/auth';
 
+export const signUp = (data) => axios.post(`http://localhost:8000/users`, data);
+
 export const login = (data) => {
   return axios.post(`${url}/login`, data);
 };
