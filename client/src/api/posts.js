@@ -17,3 +17,6 @@ export const likePost = (id) =>
 
 export const createPost = (post) =>
   axios.post('http://localhost:8000/posts', post);
+
+export const getSinglePost = (userId, postId) =>
+  axios.get(`http://localhost:8000/posts/${userId}/post/${postId}`);
