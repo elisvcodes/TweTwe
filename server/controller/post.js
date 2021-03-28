@@ -27,8 +27,12 @@ const getUserPosts = async (req, res) => {
 };
 
 const getASinglePost = async (req, res) => {
-  const post = await Post.findOne({ _id: req.params.id });
-  res.status(200).json(post);
+  Post.findOne({ _id: req.params.id })
+    .populate('author')
+    .exec((err, result) => {
+      if (err) return res.status(500).json(err);
+      res.status(200).json(result);
+    });
 };
 
 const updatePost = async (req, res) => {
