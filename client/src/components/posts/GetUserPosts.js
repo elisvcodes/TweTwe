@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserPosts, likePost } from '../../_actions/posts';
-
+import { Link } from 'react-router-dom';
 import * as dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import {
@@ -23,6 +23,10 @@ const useStyles = makeStyles({
     margin: '10px 0',
     padding: '10px 0',
   },
+  link: {
+    textDecoration: 'none',
+    color: 'black',
+  },
 });
 
 export default function GetUserPosts({ id }) {
@@ -36,29 +40,27 @@ export default function GetUserPosts({ id }) {
 
   return (
     <>
-      {posts.length === 0 ? (
-        <>
-          <Card className={classes.root}>
-            <CardContent>
-              <Typography variant="h6">No Posts Yet</Typography>
-            </CardContent>
-          </Card>
-        </>
-      ) : (
+      {posts.length !== 0 ? (
         <>
           {posts.map((post) => {
             return (
               <div key={post._id}>
                 <Card className={classes.root}>
-                  <CardHeader
-                    title={post.author.name}
-                    subheader={
-                      <p> {dayjs(post.createdAt).format('MM/DD/YYYY')}</p>
-                    }
-                  />
-                  <CardContent>
-                    <Typography variant="h6">{post.article}</Typography>
-                  </CardContent>
+                  <Link
+                    to={`/${post.author._id}/post/${post._id}`}
+                    className={classes.link}
+                  >
+                    <CardHeader
+                      title={post.author.name}
+                      subheader={
+                        <p> {dayjs(post.createdAt).format('MM/DD/YYYY')}</p>
+                      }
+                    />
+                    <CardContent>
+                      <Typography variant="h6">{post.article}</Typography>
+                    </CardContent>
+                  </Link>
+
                   <CardActions>
                     <FormControlLabel
                       control={
@@ -76,6 +78,14 @@ export default function GetUserPosts({ id }) {
               </div>
             );
           })}
+        </>
+      ) : (
+        <>
+          <Card className={classes.root}>
+            <CardContent>
+              <Typography variant="h6">No Posts Yet</Typography>
+            </CardContent>
+          </Card>
         </>
       )}
     </>
