@@ -2,8 +2,13 @@ const express = require('express');
 const router = express.Router();
 const auth = require('../middleware/auth');
 
-const { createComment, getComments } = require('../controller/comment');
+const {
+  createComment,
+  getComments,
+  numberOfComments,
+} = require('../controller/comment');
 
 router.post('/createcomment', auth, createComment);
 router.post('/getcomments', getComments);
+// router.post('/numberofcomments', numberOfComments);
 module.exports = router;
