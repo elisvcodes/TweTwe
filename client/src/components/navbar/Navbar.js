@@ -13,6 +13,7 @@ import { NavLink, useHistory } from 'react-router-dom';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    backgroundColor: 'black',
   },
   links: {
     color: 'white',
@@ -33,8 +34,8 @@ export default function Navbar({ user, setUser }) {
   const history = useHistory();
 
   return (
-    <div className={classes.root}>
-      <AppBar position="static">
+    <div>
+      <AppBar position="static" className={classes.root}>
         <Container>
           <Toolbar>
             <Typography variant="h6" className={classes.title}>
