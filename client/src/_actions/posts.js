@@ -19,3 +19,9 @@ export const getSingleUserPost = (userId, postId) => async (dispatch) => {
   const { data } = await API.getSinglePost(userId, postId);
   dispatch({ type: 'GET_SINGLE_POST', payload: data });
 };
+
+export const getAllPosts = () => async (dispatch) => {
+  const { data } = await API.getAllPosts();
+  console.log(data);
+  dispatch({ type: 'GET_ALL_POSTS', payload: data });
+};
