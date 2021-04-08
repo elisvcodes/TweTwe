@@ -13,16 +13,22 @@ const createPost = async (req, res) => {
 };
 
 const getPosts = async (req, res) => {
-  const posts = await Post.find({});
-  res.status(200).json(posts);
-};
-
-const getUserPosts = async (req, res) => {
-  const posts = await Post.find({ author: req.params.user })
+  Post.find({})
+    .sort({ createdAt: -1 })
     .populate('author')
     .exec((err, result) => {
       if (err) return res.status(500).json(err);
-      res.status(200).json(result.reverse());
+      res.status(200).json(result);
+    });
+};
+
+const getUserPosts = async (req, res) => {
+  Post.find({ author: req.params.user })
+    .populate('author')
+    .sort({ createdAt: -1 })
+    .exec((err, result) => {
+      if (err) return res.status(500).json(err);
+      res.status(200).json(result);
     });
 };
 
@@ -66,8 +72,9 @@ const deletePost = async (req, res) => {
 };
 
 const likePost = async (req, res) => {
-  await Post.findOne({ _id: req.params.id })
+  Post.findOne({ _id: req.params.id })
     .populate('author')
+    .sort({ createdAt: -1 })
     .exec((err, result) => {
       if (err) return res.status(404).json(err);
       const foundId = result.likes.findIndex(
