@@ -20,3 +20,5 @@ export const createPost = (post) =>
 
 export const getSinglePost = (userId, postId) =>
   axios.get(`http://localhost:8000/posts/${userId}/post/${postId}`);
+
+export const getAllPosts = () => axios.get('http://localhost:8000/posts');
