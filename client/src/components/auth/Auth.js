@@ -1,10 +1,10 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../_actions/auth';
 import { signUp } from '../../_actions/auth';
 import { useForm } from 'react-hook-form';
-import { useHistory } from 'react-router-dom';
 import { Container, makeStyles, TextField } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
@@ -37,12 +37,13 @@ const useStyles = makeStyles({
 });
 
 export default function Auth(props) {
+  const { setUser, match } = props;
   const dispatch = useDispatch();
+  const history = useHistory();
   const { register, handleSubmit } = useForm();
-  let history = useHistory();
 
   let isJoin;
-  if (props.match.path === '/signup') {
+  if (match.path === '/signup') {
     isJoin = true;
   } else {
     isJoin = false;
@@ -50,15 +51,9 @@ export default function Auth(props) {
 
   const onSubmit = (data) => {
     if (!isJoin) {
-      dispatch(login(data));
-      setTimeout(() => {
-        history.push('/');
-      }, 100);
+      dispatch(login(data, history, setUser));
     } else {
-      dispatch(signUp(data));
-      setTimeout(() => {
-        history.push('/');
-      }, 100);
+      dispatch(signUp(data, history, setUser));
     }
   };
 
@@ -109,7 +104,6 @@ export default function Auth(props) {
             </div>
           )}
           <button className={classes.button} type="submit">
-            {' '}
             {isJoin ? 'Sign Up' : 'Login'}
           </button>
         </form>
