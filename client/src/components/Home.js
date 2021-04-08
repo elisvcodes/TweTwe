@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Grid, makeStyles } from '@material-ui/core';
 
@@ -38,13 +38,20 @@ const useStyles = makeStyles({
 });
 
 export default function Home() {
-  const [user, setuser] = useState(JSON.parse(localStorage.getItem('profile')));
-  let isJoined;
-  if (user) {
-    isJoined = true;
-  } else {
-    isJoined = false;
-  }
+  const [user, setuser] = useState('');
+  useEffect(() => {
+    if (localStorage.getItem('profile')) {
+      setuser(JSON.parse(localStorage.getItem('profile')));
+    } else {
+      setuser(false);
+    }
+  }, []);
+  // let isJoined;
+  // if (user) {
+  //   isJoined = true;
+  // } else {
+  //   isJoined = false;
+  // }
 
   const classes = useStyles();
 
@@ -59,7 +66,7 @@ export default function Home() {
               opinions freely and openly.
             </p>
           </Grid>
-          {isJoined ? (
+          {user ? (
             <Link to={user.result._id}>
               <button className={classes.buttons}> View Profile</button>
             </Link>
