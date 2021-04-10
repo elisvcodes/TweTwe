@@ -33,7 +33,7 @@ export default function CreatePost({ user }) {
   };
 
   const onSubmit = (data) => {
-    data.author = user.result._id;
+    data.author = user._id;
     dispatch(createPost(data));
     reset();
   };
