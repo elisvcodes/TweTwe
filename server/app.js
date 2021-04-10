@@ -10,4 +10,5 @@ app.use('/users', require('./routes/user'));
 app.use('/posts', require('./routes/post'));
 app.use('/comments', require('./routes/comment'));
 app.use('/follow', require('./routes/follow'));
+app.use('/search', require('./routes/search'));
 app.listen(8000);
