@@ -10,5 +10,4 @@ const {
 
 router.post('/createcomment', auth, createComment);
 router.post('/getcomments', getComments);
-// router.post('/numberofcomments', numberOfComments);
 module.exports = router;
