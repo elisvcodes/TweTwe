@@ -84,7 +84,7 @@ export default function SinglePost({ posts, user }) {
         <>
           <Card className={classes.root}>
             <CardContent>
-              <Typography variant="h6">No Posts Yet</Typography>
+              <Typography variant="h6">No Posts Found</Typography>
             </CardContent>
           </Card>
         </>
