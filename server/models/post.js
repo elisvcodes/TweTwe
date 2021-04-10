@@ -27,6 +27,9 @@ const postSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+// Will be used for searching
+postSchema.index({ article: 'text' });
+
 const Post = mongoose.model('Post', postSchema);
 
 module.exports = Post;
