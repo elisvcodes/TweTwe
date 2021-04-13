@@ -7,9 +7,10 @@ const search = (req, res) => {
     },
   })
     .populate('author')
+    .sort({ createdAt: -1 })
     .exec((err, result) => {
       if (err) return res.status(400).json(err);
-      res.status(200).json(result);
+      res.status(200).json({ result });
     });
 };
 
