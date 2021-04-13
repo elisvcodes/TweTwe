@@ -25,3 +25,6 @@ export const getAllPosts = () => axios.get('http://localhost:8000/posts');
 
 export const search = (query) =>
   axios.get(`http://localhost:8000/search/${query}`);
+
+export const deletePost = (id) =>
+  axios.delete(`http://localhost:8000/posts/${id}`);
