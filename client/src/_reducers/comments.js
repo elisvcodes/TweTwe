@@ -1,7 +1,6 @@
 export default (comments = { commentsList: [] }, action) => {
   switch (action.type) {
     case 'CREATE_COMMENT':
-      console.log(action.payload);
       return {
         ...comments,
         commentsList: [...comments.commentsList, action.payload],
