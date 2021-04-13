@@ -19,11 +19,14 @@ const theme = createMuiTheme({
       main: '#f5b498',
     },
   },
+  a: {
+    color: '#fff',
+    textDecoration: 'none',
+  },
 });
 
 function App() {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
-
   useEffect(() => {
     if (localStorage.getItem('profile')) {
       setUser(JSON.parse(localStorage.getItem('profile')));
@@ -41,7 +44,11 @@ function App() {
             exact
             path="/"
             render={(props) =>
-              user ? <UserHomePage user={user.result} /> : <Home />
+              user ? (
+                <UserHomePage user={user !== 0 ? user.result : 0} />
+              ) : (
+                <Home />
+              )
             }
           />
           <Route
@@ -54,15 +61,27 @@ function App() {
           />
           <Route
             path="/search/:query"
-            render={(props) => <SearchResults {...props} user={user.result} />}
+            render={(props) => (
+              <SearchResults
+                {...props}
+                user={user !== null ? user.result : user}
+              />
+            )}
           />{' '}
           <Route
             path="/:userid/post/:postid"
-            render={(props) => <GetSinglePost {...props} user={user.result} />}
+            render={(props) => (
+              <GetSinglePost
+                {...props}
+                user={user !== null ? user.result : user}
+              />
+            )}
           />
           <Route
             path="/:id"
-            render={(props) => <Profile {...props} user={user.result} />}
+            render={(props) => (
+              <Profile {...props} user={user !== null ? user.result : user} />
+            )}
           />
         </Switch>
       </MuiThemeProvider>
