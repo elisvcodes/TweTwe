@@ -22,7 +22,7 @@ export default function ProfileHeader({ user, viewingProfile }) {
             </Grid>
             <CardActions>
               <Grid item xs={6} sm={2}>
-                {user._id === viewingProfile._id ? (
+                {user && user._id === viewingProfile._id ? (
                   ''
                 ) : (
                   <Follow user={user} viewingProfile={viewingProfile} />

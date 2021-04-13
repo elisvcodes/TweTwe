@@ -8,6 +8,7 @@ import {
 } from '../../_actions/user';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
   button: {
@@ -28,11 +29,17 @@ const useStyles = makeStyles({
 
 export default function Follow({ user, viewingProfile }) {
   const dispatch = useDispatch();
+  const history = useHistory();
   const isFollowing = useSelector((state) => state.follow.isFollowing);
   const [followingOption, setFollowingOption] = useState(false);
   useEffect(() => {
-    dispatch(following({ following: viewingProfile._id, follower: user._id }));
-    setFollowingOption(isFollowing);
+    if (user !== null) {
+      dispatch(
+        following({ following: viewingProfile._id, follower: user._id })
+      );
+      setFollowingOption(isFollowing);
+    } else {
+    }
   }, [dispatch, isFollowing]);
   const trackButton = () => {
     followingOption
@@ -65,7 +72,16 @@ export default function Follow({ user, viewingProfile }) {
 
   return (
     <>
-      <button onClick={trackButton} className={classes.button}>
+      <button
+        onClick={() => {
+          if (user === null) {
+            history.push('/signin');
+          } else {
+            trackButton();
+          }
+        }}
+        className={classes.button}
+      >
         {followingOption ? 'unfollow' : 'follow'}
       </button>
     </>

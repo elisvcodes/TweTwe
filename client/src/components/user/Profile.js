@@ -19,6 +19,7 @@ export default function Profile(props) {
   const { user, match } = props;
   const userId = match.params.id;
   const loggedInUser = user;
+
   const dispatch = useDispatch();
 
   const usersProfileData = useSelector((state) => state.user);
@@ -29,19 +30,18 @@ export default function Profile(props) {
     dispatch(getFollowingCount({ follower: userId }));
     dispatch(getUserPosts(userId));
   }, [dispatch]);
-
   const classes = useStyles();
   return (
     <>
       <Container className={classes.root}>
         <ProfileHeader
-          user={loggedInUser ? loggedInUser : usersProfileData}
+          user={loggedInUser ? loggedInUser : null}
           viewingProfile={usersProfileData.userData}
         />
         <Grid container>
           <Grid item xs={12} sm={3}>
             <FollowCounter />
-            <CreatePost user={user} />
+            {userId === loggedInUser._id ? <CreatePost user={user} /> : ''}
           </Grid>
           <Grid item xs={12} sm={9}>
             <GetUserPosts posts={posts} user={user} />
