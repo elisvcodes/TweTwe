@@ -8,14 +8,13 @@ export default function UserHomePage(props) {
   const { user } = props;
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts);
-
   useEffect(() => {
     dispatch(getAllPosts());
   }, [dispatch]);
   return (
     <>
       <Container>
-        <SinglePost posts={posts} user={user} />
+        <SinglePost posts={posts} user={user} hasLink={true} />
       </Container>
     </>
   );
