@@ -22,6 +22,11 @@ export const getSingleUserPost = (userId, postId) => async (dispatch) => {
 
 export const getAllPosts = () => async (dispatch) => {
   const { data } = await API.getAllPosts();
-  console.log(data);
   dispatch({ type: 'GET_ALL_POSTS', payload: data });
+};
+
+export const deletePost = (id) => async (dispatch) => {
+  const { data } = await API.deletePost(id);
+  console.log(data);
+  dispatch({ type: 'DELETE_POST', payload: id });
 };

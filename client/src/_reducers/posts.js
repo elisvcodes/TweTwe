@@ -1,20 +1,27 @@
-export default (posts = [], action) => {
+export default (posts = { result: [] }, action) => {
   switch (action.type) {
     case 'GET_USER_POSTS':
       return action.payload;
     case 'LIKEPOST':
-      const newLikes = posts.map((post) => {
-        if (post._id === action.payload._id) {
-          return { ...post, ...action.payload };
+      const result = posts.result.map((post) => {
+        if (post._id === action.payload.result[0]._id) {
+          return { ...post, ...action.payload.result[0] };
         } else {
           return post;
         }
       });
-      return newLikes;
+      return { ...posts, result };
     case 'CREATE_POST':
-      return [...posts, action.payload];
+      return { ...posts, result: [...posts.result, action.payload] };
     case 'GET_ALL_POSTS':
       return action.payload;
+    case 'GET_SINGLE_POST':
+      return action.payload;
+    case 'DELETE_POST':
+      const afterDelete = posts.result.filter((post) => {
+        return post._id !== action.payload;
+      });
+      return { result: afterDelete };
     case 'SEARCH_RESULTS':
       return action.payload;
     default:
