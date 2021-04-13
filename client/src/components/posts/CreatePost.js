@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createPost } from '../../_actions/posts';
 import { useForm } from 'react-hook-form';
-import { useHistory } from 'react-router-dom';
 import {
   Dialog,
   DialogActions,
@@ -42,17 +41,19 @@ export default function CreatePost({ user }) {
 
   return (
     <>
-      <div className={classes.root}>
-        <Button
-          variant="contained"
-          color="primary"
-          fullWidth
-          onClick={handleClickOpen}
-          color="white"
-        >
-          Post
-        </Button>
-      </div>
+      {user && (
+        <div className={classes.root}>
+          <Button
+            variant="contained"
+            color="primary"
+            fullWidth
+            onClick={handleClickOpen}
+            color="default"
+          >
+            Post
+          </Button>
+        </div>
+      )}
       <form onSubmit={handleSubmit(onSubmit)}>
         <Dialog
           open={open}
