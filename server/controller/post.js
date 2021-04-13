@@ -18,7 +18,7 @@ const getPosts = async (req, res) => {
     .populate('author')
     .exec((err, result) => {
       if (err) return res.status(500).json(err);
-      res.status(200).json(result);
+      res.status(200).json({ result });
     });
 };
 
@@ -28,16 +28,16 @@ const getUserPosts = async (req, res) => {
     .sort({ createdAt: -1 })
     .exec((err, result) => {
       if (err) return res.status(500).json(err);
-      res.status(200).json(result);
+      res.status(200).json({ result });
     });
 };
 
 const getASinglePost = async (req, res) => {
-  Post.findOne({ _id: req.params.id })
+  Post.find({ _id: req.params.id })
     .populate('author')
     .exec((err, result) => {
       if (err) return res.status(500).json(err);
-      res.status(200).json(result);
+      res.status(200).json({ result });
     });
 };
 
@@ -72,23 +72,23 @@ const deletePost = async (req, res) => {
 };
 
 const likePost = async (req, res) => {
-  Post.findOne({ _id: req.params.id })
+  Post.find({ _id: req.params.id })
     .populate('author')
     .sort({ createdAt: -1 })
     .exec((err, result) => {
       if (err) return res.status(404).json(err);
-      const foundId = result.likes.findIndex(
+      const foundId = result[0].likes.findIndex(
         (id) => String(id) === String(req.user._id)
       );
       if (foundId === -1) {
-        result.likes = result.likes.concat({ _id: req.user._id });
+        result[0].likes = result[0].likes.concat({ _id: req.user._id });
       } else {
-        result.likes = result.likes.filter(
+        result[0].likes = result[0].likes.filter(
           (id) => String(id) !== String(req.user._id)
         );
       }
-      result.save();
-      res.status(200).json(result);
+      result[0].save();
+      res.status(200).json({ result });
     });
 };
 
