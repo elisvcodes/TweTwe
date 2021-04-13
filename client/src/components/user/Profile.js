@@ -41,7 +41,8 @@ export default function Profile(props) {
         <Grid container>
           <Grid item xs={12} sm={3}>
             <FollowCounter />
-            {userId === loggedInUser._id ? <CreatePost user={user} /> : ''}
+            {loggedInUser &&
+              (userId === loggedInUser._id ? <CreatePost user={user} /> : '')}
           </Grid>
           <Grid item xs={12} sm={9}>
             <GetUserPosts posts={posts} user={user} />
