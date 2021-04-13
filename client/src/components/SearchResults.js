@@ -9,7 +9,7 @@ export default function SearchResults(props) {
   return (
     <>
       <Container>
-        <SinglePost posts={results} user={user} />
+        <SinglePost posts={results} user={user} hasLink={true} />
       </Container>
     </>
   );
