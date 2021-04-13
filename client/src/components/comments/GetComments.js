@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import * as dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
-import { Card, CardContent, makeStyles } from '@material-ui/core';
+import { Card, CardContent, makeStyles, Link } from '@material-ui/core';
 
 dayjs.extend(relativeTime);
 
@@ -20,7 +20,9 @@ export default function GetComments({ comments }) {
           return (
             <Card key={comment._id} className={classes.root}>
               <CardContent>
-                <p>{comment.author.name}</p>
+                <Link href={`/${comment.author._id}`} underline="none">
+                  <p>{comment.author.name}</p>
+                </Link>
                 <p>{dayjs(comment.createdAt).format('MM/DD/YYYY')}</p>
                 <p>{comment.comment}</p>
               </CardContent>
