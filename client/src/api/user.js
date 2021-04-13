@@ -10,14 +10,20 @@ axios.interceptors.request.use((req) => {
 });
 
 export const getSingleUser = (id) =>
-  axios.get(`http://localhost:8000/users/${id}`);
+  axios.get(`https://socialapp.server.elisv.com/users/${id}`);
 export const followingCount = (following) =>
-  axios.post('http://localhost:8000/follow/followingcount', following);
+  axios.post(
+    'https://socialapp.server.elisv.com/follow/followingcount',
+    following
+  );
 export const followerCount = (follower) =>
-  axios.post('http://localhost:8000/follow/followercount', follower);
+  axios.post(
+    'https://socialapp.server.elisv.com/follow/followercount',
+    follower
+  );
 export const follow = (userIds) =>
-  axios.post('http://localhost:8000/follow', userIds);
+  axios.post('https://socialapp.server.elisv.com/follow', userIds);
 export const unfollow = (userIds) =>
-  axios.post('http://localhost:8000/follow/unfollow', userIds);
+  axios.post('https://socialapp.server.elisv.com/follow/unfollow', userIds);
 export const following = (userIds) =>
-  axios.post('http://localhost:8000/follow/following', userIds);
+  axios.post('https://socialapp.server.elisv.com/follow/following', userIds);

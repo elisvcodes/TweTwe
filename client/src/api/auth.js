@@ -9,9 +9,10 @@ axios.interceptors.request.use((req) => {
   return req;
 });
 
-const url = 'http://localhost:8000/auth';
+const url = 'https://socialapp.server.elisv.com/auth';
 
-export const signUp = (data) => axios.post(`http://localhost:8000/users`, data);
+export const signUp = (data) =>
+  axios.post(`https://socialapp.server.elisv.com/users`, data);
 
 export const login = (data) => {
   return axios.post(`${url}/login`, data);

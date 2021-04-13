@@ -10,21 +10,24 @@ axios.interceptors.request.use((req) => {
 });
 
 export const getUserPosts = (id) =>
-  axios.get(`http://localhost:8000/posts/${id}`);
+  axios.get(`https://socialapp.server.elisv.com/posts/${id}`);
 
 export const likePost = (id) =>
-  axios.patch(`http://localhost:8000/posts/${id}/like`);
+  axios.patch(`https://socialapp.server.elisv.com/posts/${id}/like`);
 
 export const createPost = (post) =>
-  axios.post('http://localhost:8000/posts', post);
+  axios.post('https://socialapp.server.elisv.com/posts', post);
 
 export const getSinglePost = (userId, postId) =>
-  axios.get(`http://localhost:8000/posts/${userId}/post/${postId}`);
+  axios.get(
+    `https://socialapp.server.elisv.com/posts/${userId}/post/${postId}`
+  );
 
-export const getAllPosts = () => axios.get('http://localhost:8000/posts');
+export const getAllPosts = () =>
+  axios.get('https://socialapp.server.elisv.com/posts');
 
 export const search = (query) =>
-  axios.get(`http://localhost:8000/search/${query}`);
+  axios.get(`https://socialapp.server.elisv.com/search/${query}`);
 
 export const deletePost = (id) =>
-  axios.delete(`http://localhost:8000/posts/${id}`);
+  axios.delete(`https://socialapp.server.elisv.com/posts/${id}`);

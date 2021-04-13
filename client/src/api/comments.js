@@ -10,6 +10,6 @@ axios.interceptors.request.use((req) => {
 });
 
 export const createComment = (data) =>
-  axios.post('http://localhost:8000/comments/createcomment', data);
+  axios.post('https://socialapp.server.elisv.com/comments/createcomment', data);
 export const getComments = (postId) =>
-  axios.post('http://localhost:8000/comments/getcomments', postId);
+  axios.post('https://socialapp.server.elisv.com/comments/getcomments', postId);
