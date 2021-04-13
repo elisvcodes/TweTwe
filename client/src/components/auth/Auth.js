@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../../_actions/auth';
-import { signUp } from '../../_actions/auth';
+import { login, signUp } from '../../_actions/auth';
 import { useForm } from 'react-hook-form';
 import { Container, makeStyles, TextField } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
@@ -96,7 +95,7 @@ export default function Auth(props) {
             <div>
               <TextField
                 type="password"
-                name="password"
+                name="confirmPassword"
                 placeholder="Password"
                 inputRef={register}
                 variant="outlined"
