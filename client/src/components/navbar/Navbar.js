@@ -11,8 +11,9 @@ import {
   makeStyles,
   Container,
   InputBase,
+  Link,
 } from '@material-ui/core';
-import { NavLink, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -73,9 +74,9 @@ export default function Navbar({ user, setUser }) {
         <Container>
           <Toolbar>
             <Typography variant="h6" className={classes.title}>
-              <NavLink to="/" className={classes.links}>
+              <Link href="/" className={classes.links} underline="none">
                 TweTwe
-              </NavLink>
+              </Link>
             </Typography>
             <div className={classes.search}>
               <form onSubmit={onSubmit}>
@@ -92,9 +93,13 @@ export default function Navbar({ user, setUser }) {
             </div>
             {user?.result ? (
               <>
-                <NavLink to={`/${user.result._id}`} className={classes.links}>
+                <Link
+                  href={`/${user.result._id}`}
+                  className={classes.links}
+                  underline="none"
+                >
                   Profile
-                </NavLink>
+                </Link>
 
                 <Button
                   color="secondary"
@@ -109,13 +114,13 @@ export default function Navbar({ user, setUser }) {
               </>
             ) : (
               <>
-                <NavLink to="/signin" className={classes.links}>
+                <Link href="/signin" className={classes.links} underline="none">
                   Login
-                </NavLink>
+                </Link>
 
-                <NavLink to="/signup" className={classes.links}>
+                <Link href="/signup" className={classes.links} underline="none">
                   Sign Up
-                </NavLink>
+                </Link>
               </>
             )}
           </Toolbar>
