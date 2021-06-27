@@ -4,6 +4,9 @@
 
 TweTwe is a social media platform that aims to replicate some of Twitter's notable features such as liking posts, commenting, following other users, and creating posts of their own. Keep in mind that this project was done for the sake of my curiosity, and I chose specific features to implement. Thus many other features that make Twitter an amazing platform are lacking in this prototype.
 
+## 1. Registration
+https://drive.google.com/file/d/1p1CPXa6AvTttWyvc3n0Y-5ZCgulxMVs5/view
+
 ## Built With
 
 For this project, I chose to work with the mern stack and material UI. I also used other libraries that are listed in the Acknowledgements section.
