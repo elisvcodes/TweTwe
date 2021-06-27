@@ -5,20 +5,24 @@
 TweTwe is a social media platform that aims to replicate some of Twitter's notable features such as liking posts, commenting, following other users, and creating posts of their own. Keep in mind that this project was done for the sake of my curiosity, and I chose specific features to implement. Thus many other features that make Twitter an amazing platform are lacking in this prototype.
 
 ## 1. Registration
-Users are able to register
+Users are able to register.
 ![Registration](https://user-images.githubusercontent.com/69530035/123552437-2432f780-d744-11eb-876e-7f47082171ef.gif)
 
 ## 2. Post Creation
-Users are able to create posts
+Users are able to create posts.
 ![postcreate](https://user-images.githubusercontent.com/69530035/123552403-fcdc2a80-d743-11eb-9170-f57933cf903e.gif)
 
 ## 3. Liking/unliking posts
-Users are able to like and unlike posts
+Users are able to like and unlike posts.
 ![like/unlike](https://user-images.githubusercontent.com/69530035/123553346-a0c7d500-d748-11eb-9122-65a9560ae05d.gif)
 
 ## 4. Following/Unfolliwing other users
-Users are able to follow and unfollow other users
+Users are able to follow and unfollow other users. Also, users cannot follow themselves.
 ![Following/Unfolliwing other users](https://user-images.githubusercontent.com/69530035/123553453-3c594580-d749-11eb-9f91-4661bbc439b7.gif)
+
+## 5. Comments
+Users are able leave comments on other posts
+![comments](https://user-images.githubusercontent.com/69530035/123553545-c2758c00-d749-11eb-8e89-a9725c107b5a.gif)
 
 
 ## Built With
