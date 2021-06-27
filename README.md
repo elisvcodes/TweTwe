@@ -13,8 +13,8 @@ Users are able to create posts
 ![postcreate](https://user-images.githubusercontent.com/69530035/123552403-fcdc2a80-d743-11eb-9170-f57933cf903e.gif)
 
 ## 2. Liking/unliking posts
-Users are able to create posts
-![like/unlike](https://media.giphy.com/media/Jkk9MwL8GUG9hK7EkK/source.mov)
+Users are able to like and unlike posts
+![like/unlike](https://user-images.githubusercontent.com/69530035/123553346-a0c7d500-d748-11eb-9122-65a9560ae05d.gif)
 
 
 ## Built With
