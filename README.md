@@ -9,29 +9,29 @@ Users are able to register.
 
 ![Registration](https://user-images.githubusercontent.com/69530035/123552437-2432f780-d744-11eb-876e-7f47082171ef.gif)
 
-## 2. Post Creation
+## 2. Profile
+Each user has a profile page that shows their name, the date they joined, and a list of posts they have created.   
+
+![profile](https://user-images.githubusercontent.com/69530035/123553706-e5ed0680-d74a-11eb-8a6d-af993776497a.gif)
+
+## 3. Post Creation
 Users are able to create posts.
 
 ![postcreate](https://user-images.githubusercontent.com/69530035/123552403-fcdc2a80-d743-11eb-9170-f57933cf903e.gif)
 
-## 3. Liking/unliking posts
+## 4. Liking/unliking posts
 Users are able to like and unlike posts.
 ![like/unlike](https://user-images.githubusercontent.com/69530035/123553346-a0c7d500-d748-11eb-9122-65a9560ae05d.gif)
 
-## 4. Following/Unfolliwing other users
+## 5. Following/Unfolliwing other users
 Users are able to follow and unfollow other users. Also, users cannot follow themselves.
 
 ![Following/Unfolliwing other users](https://user-images.githubusercontent.com/69530035/123553453-3c594580-d749-11eb-9f91-4661bbc439b7.gif)
 
-## 5. Comments
+## 6. Comments
 Users are able leave comments on other posts
 
 ![comments](https://user-images.githubusercontent.com/69530035/123553545-c2758c00-d749-11eb-8e89-a9725c107b5a.gif)
-
-## 6. Profile
-Each user has a profile page that shows their name, the date they joined, and a list of posts they have created.   
-
-![profile](https://user-images.githubusercontent.com/69530035/123553545-c2758c00-d749-11eb-8e89-a9725c107b5a.gif)
 
 
 ## Built With
