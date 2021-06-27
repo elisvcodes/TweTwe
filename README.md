@@ -33,6 +33,11 @@ Users are able leave comments on other posts
 
 ![comments](https://user-images.githubusercontent.com/69530035/123553545-c2758c00-d749-11eb-8e89-a9725c107b5a.gif)
 
+## 6. Searching
+Users are able to search for posts containing the search query
+
+![search](https://user-images.githubusercontent.com/69530035/123553872-8a6f4880-d74b-11eb-8c0e-c82a596dd5de.gif)
+
 
 ## Built With
 
