@@ -12,9 +12,13 @@ Users are able to register
 Users are able to create posts
 ![postcreate](https://user-images.githubusercontent.com/69530035/123552403-fcdc2a80-d743-11eb-9170-f57933cf903e.gif)
 
-## 2. Liking/unliking posts
+## 3. Liking/unliking posts
 Users are able to like and unlike posts
 ![like/unlike](https://user-images.githubusercontent.com/69530035/123553346-a0c7d500-d748-11eb-9122-65a9560ae05d.gif)
+
+## 4. Following/Unfolliwing other users
+Users are able to follow and unfollow other users
+![Following/Unfolliwing other users](https://user-images.githubusercontent.com/69530035/123553453-3c594580-d749-11eb-9f91-4661bbc439b7.gif)
 
 
 ## Built With
