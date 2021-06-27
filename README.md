@@ -1,4 +1,3 @@
-
 # TweTwe
 
 ![TweTwe HomePage](https://elisv.com/_next/image?url=%2Ftwetwe.png&w=3840&q=75)
@@ -7,9 +6,10 @@ TweTwe is a social media platform that aims to replicate some of Twitter's notab
 
 ## 1. Registration
 Users are able to register
-![Registration](https://user-images.githubusercontent.com/69530035/123552218-2cd6fe00-d743-11eb-91c1-2ea09d9be8ae.mp4)
+![Registration](https://user-images.githubusercontent.com/69530035/123552437-2432f780-d744-11eb-876e-7f47082171ef.gif)
 
 ## 2. Post Creation
+Users are able to create posts
 ![postcreate](https://user-images.githubusercontent.com/69530035/123552403-fcdc2a80-d743-11eb-9170-f57933cf903e.gif)
 
 
