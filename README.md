@@ -5,9 +5,9 @@
 TweTwe is a social media platform that aims to replicate some of Twitter's notable features such as liking posts, commenting, following other users, and creating posts of their own. Keep in mind that this project was done for the sake of my curiosity, and I chose specific features to implement. Thus many other features that make Twitter an amazing platform are lacking in this prototype.
 
 ## 1. Registration
-Users are able to register.
+Users are able to register and login.
 
-![Registration](https://user-images.githubusercontent.com/69530035/123552437-2432f780-d744-11eb-876e-7f47082171ef.gif)
+![Registration](https://user-images.githubusercontent.com/69530035/123554105-898ae680-d74c-11eb-8426-96ee88b8e2ea.gif)
 
 ## 2. Profile
 Each user has a profile page that shows their name, the date they joined, and a list of posts they have created.   
