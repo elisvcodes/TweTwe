@@ -6,10 +6,12 @@ TweTwe is a social media platform that aims to replicate some of Twitter's notab
 
 ## 1. Registration
 Users are able to register.
+
 ![Registration](https://user-images.githubusercontent.com/69530035/123552437-2432f780-d744-11eb-876e-7f47082171ef.gif)
 
 ## 2. Post Creation
 Users are able to create posts.
+
 ![postcreate](https://user-images.githubusercontent.com/69530035/123552403-fcdc2a80-d743-11eb-9170-f57933cf903e.gif)
 
 ## 3. Liking/unliking posts
@@ -18,10 +20,12 @@ Users are able to like and unlike posts.
 
 ## 4. Following/Unfolliwing other users
 Users are able to follow and unfollow other users. Also, users cannot follow themselves.
+
 ![Following/Unfolliwing other users](https://user-images.githubusercontent.com/69530035/123553453-3c594580-d749-11eb-9f91-4661bbc439b7.gif)
 
 ## 5. Comments
 Users are able leave comments on other posts
+
 ![comments](https://user-images.githubusercontent.com/69530035/123553545-c2758c00-d749-11eb-8e89-a9725c107b5a.gif)
 
 
