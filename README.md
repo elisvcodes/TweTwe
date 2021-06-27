@@ -28,6 +28,11 @@ Users are able leave comments on other posts
 
 ![comments](https://user-images.githubusercontent.com/69530035/123553545-c2758c00-d749-11eb-8e89-a9725c107b5a.gif)
 
+## 6. Profile
+Each user has a profile page that shows their name, the date they joined, and a list of posts they have created.   
+
+![profile](https://user-images.githubusercontent.com/69530035/123553545-c2758c00-d749-11eb-8e89-a9725c107b5a.gif)
+
 
 ## Built With
 
