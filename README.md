@@ -33,10 +33,21 @@ Users are able leave comments on other posts
 
 ![comments](https://user-images.githubusercontent.com/69530035/123553545-c2758c00-d749-11eb-8e89-a9725c107b5a.gif)
 
-## 6. Searching
+## 7. Searching
 Users are able to search for posts containing the search query
 
 ![search](https://user-images.githubusercontent.com/69530035/123553872-8a6f4880-d74b-11eb-8c0e-c82a596dd5de.gif)
+
+## 8. Deleting posts
+Users are able to delete posts that were created by them only
+
+![delete posts](https://user-images.githubusercontent.com/69530035/123553967-efc33980-d74b-11eb-89a4-ad0669825973.gif)
+
+
+## 9. Logout
+Users are able to logout and be redirected to the login page
+
+![logout](https://user-images.githubusercontent.com/69530035/123554026-2ef18a80-d74c-11eb-971f-59e118b8024b.gif)
 
 
 ## Built With
